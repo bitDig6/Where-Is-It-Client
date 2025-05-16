@@ -1,10 +1,10 @@
 import React from 'react';
-import logo from '../assets/logo.png';
+import logo from '../../assets/logo.png';
 
 const Footer = () => {
     return (
         <div>
-            <footer className="footer sm:footer-horizontal bg-orange-100 text-black p-10">
+            <footer className="footer md:footer-horizontal bg-orange-100 text-black p-10">
                 <aside>
                     <img src={logo} alt="site logo" className='w-16' />
                     <p className='font-federo text-2xl'>
@@ -32,7 +32,7 @@ const Footer = () => {
                     <a className="link link-hover">Email: lostandfound33@gmail.com</a>
                 </nav>
                 <nav>
-                    <h6 className="footer-title">Social</h6>
+                    <h6 className="footer-title">Follow Us on Social Media</h6>
                     <div className="grid grid-flow-col gap-4">
                         <a>
                             <svg

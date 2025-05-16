@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
-import logo from '../assets/logo.png';
+import logo from '../../assets/logo.png';
 // import useAuth from '../hooks/useAuth';
 
 const Navbar = () => {
@@ -57,7 +57,9 @@ const Navbar = () => {
             </div> */}
 
             <div className="navbar-end">
-                <a className="btn btn-primary">Button</a>
+                <Link to="/login">
+                    <button className='btn btn-primary'>Login</button>
+                </Link>
             </div>
         </div>
     );

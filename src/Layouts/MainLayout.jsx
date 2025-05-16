@@ -1,14 +1,17 @@
 import React from 'react';
-import Navbar from '../components/Navbar';
 import { Outlet } from 'react-router';
-import Footer from '../components/Footer';
+import Navbar from '../components/shared/Navbar';
+import Footer from '../components/shared/Footer';
+
 
 const MainLayout = () => {
     return (
         <div>
-            <Navbar></Navbar>
-            <Outlet></Outlet>
-            <Footer></Footer>
+           <Navbar></Navbar>
+            <main className='min-h-screen'>
+                <Outlet></Outlet>
+            </main>
+           <Footer></Footer>
         </div>
     );
 };
