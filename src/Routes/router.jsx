@@ -3,6 +3,7 @@ import MainLayout from "../Layouts/MainLayout";
 import Login from "../pages/Login";
 import Home from "../pages/Home";
 import Register from "../pages/Register";
+import LostAndFoundItems from "../pages/LostAndFoundItems";
 
 
 const router = createBrowserRouter([
@@ -13,6 +14,10 @@ const router = createBrowserRouter([
             {
                 path: '/',
                 element: <Home></Home>
+            },
+            {
+                path: '/allItems',
+                element: <LostAndFoundItems></LostAndFoundItems>
             },
            {
             path: '/login',

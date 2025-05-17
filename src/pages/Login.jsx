@@ -27,7 +27,7 @@ const Login = () => {
                 setError(error.message);
                 toast.error(error.message);
             })
-
+            e.target.reset();
     }
 
     const handleGoogleLogin = () => {
@@ -50,8 +50,8 @@ const Login = () => {
         <div>
             <div className="hero bg-base-200 min-h-screen">
                 <div className="hero-content flex-col lg:flex-row-reverse">
-                    <div className="text-center lg:text-left w-96">
-
+                    <div className="text-center lg:text-left">
+                        {/* write some thing like login to get access hijibiji */}
                     </div>
                     <div className="card w-full max-w-sm shrink-0 shadow-2xl">
                         <div className="card-body">

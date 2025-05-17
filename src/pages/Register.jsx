@@ -35,7 +35,7 @@ const Register = () => {
                 user.displayName = name;
                 user.photoURL = photo;
                 setUser(user);
-                
+
                 updateUserProfile(updatedInfo)
                     .then(() => {
                         Swal.fire({
@@ -51,6 +51,7 @@ const Register = () => {
                 setError(error.message);
                 toast.error(error.message);
             })
+        e.target.reset();
     }
 
     const handleGoogleLogin = () => {
@@ -72,24 +73,24 @@ const Register = () => {
     return (
         <div className="hero bg-base-200 min-h-screen py-10">
             <div className="hero-content flex-col lg:flex-row-reverse">
-                <div className="text-center lg:text-left w-96">
-
+                <div className="text-center lg:text-left">
+                    {/* write some thing like register to get access hijibiji */}
                 </div>
                 <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
                     <div className="card-body">
                         <h1 className="ml-8 mt-4 text-4xl font-semibold text-center">Register</h1>
                         <form onSubmit={handleRegister} className="fieldset">
                             <label className="label">Name</label>
-                            <input type="text" name='name' className="input" placeholder="Your Name" />
+                            <input type="text" name='name' className="input" placeholder="Your Name" required autoComplete='off' />
+
+                            <label className="label">Profile Photo</label>
+                            <input type="url" name='photo' className="input" placeholder="url to your profile photo" required autoComplete='off' />
 
                             <label className="label">Email</label>
-                            <input type="url" name='photo' className="input" placeholder="url to your profile photo" />
-
-                            <label className="label">Email</label>
-                            <input type="email" name='email' className="input" placeholder="Email" />
+                            <input type="email" name='email' className="input" placeholder="Email" required autoComplete='off' />
 
                             <label className="label">Password</label>
-                            <input type="password" name='password' className="input" placeholder="Password" />
+                            <input type="password" name='password' className="input" placeholder="Password" required autoComplete='off' />
                             {
                                 error && <p className='text-red-500'>*{error}</p>
                             }
