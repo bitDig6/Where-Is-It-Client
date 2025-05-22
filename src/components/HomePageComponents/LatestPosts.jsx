@@ -33,7 +33,7 @@ const LatestPosts = () => {
             </div>
             <div className='text-center'>
                 <Link to='/allItems'>
-                    <button className="btn btn-secondary btn-wide btn-lg">See All</button>
+                    <button className="btn btn-secondary btn-wide lg:btn-lg">See All</button>
                 </Link>
             </div>
         </section>
