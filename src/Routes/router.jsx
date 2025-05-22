@@ -17,7 +17,8 @@ const router = createBrowserRouter([
             },
             {
                 path: '/allItems',
-                element: <LostAndFoundItems></LostAndFoundItems>
+                element: <LostAndFoundItems></LostAndFoundItems>,
+                // loader: () => fetch('https://where-is-it-server-xi.vercel.app/allItems')
             },
            {
             path: '/login',

@@ -40,15 +40,15 @@ const Banner = () => {
             >
                 {/* no 1 slide img link:  */}
 
-                <SwiperSlide className='h-full'>
+                <SwiperSlide className='h-full bg-gradient-to-br from-white to-lime-400'>
                     <div className="hero h-full">
                         <div className="hero-content flex-col-reverse lg:flex-row-reverse">
                             <img
                                 src="https://i.ibb.co/0Hftck6/lafb1.jpg"
-                                className="w-40 lg:w-full rounded-lg shadow-2xl"
+                                className="w-40 lg:w-96 rounded-lg shadow-2xl"
                             />
-                            <div>
-                                <h1 className="text-3xl text-center lg:text-left lg:text-5xl font-bold">Search And Reclaim Your Lost Belongings With Ease</h1>
+                            <div className='w-1/2 mx-auto'>
+                                <h1 className="text-3xl text-center lg:text-left lg:text-5xl font-bold">Search And Reclaim <br /> Lost Belongings <br /> With Ease</h1>
                             </div>
                         </div>
                     </div>
