@@ -1,6 +1,6 @@
 import React from 'react';
 
-const LFItemsFom = () => {
+const LFItemsForm = () => {
     return (
         <div>
             
@@ -8,4 +8,4 @@ const LFItemsFom = () => {
     );
 };
 
-export default LFItemsFom;
+export default LFItemsForm;

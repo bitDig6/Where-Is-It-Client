@@ -2,7 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 import React, { useState } from 'react';
 import Loading from '../components/shared/common/Loading';
-import { useLoaderData } from 'react-router';
+import { Link, useLoaderData } from 'react-router';
 import LFItemCard from '../components/shared/LfItems/LFItemCard';
 import { BiSolidGrid } from "react-icons/bi";
 import { IoMenu } from "react-icons/io5";
@@ -77,31 +77,56 @@ const LostAndFoundItems = () => {
                         <button onClick={handleCardLayout} className='btn btn-primary'><IoMenu></IoMenu></button></div>
                 </div>
             </div>
+            {/* card layout */}
             {
                 card && <div className='w-4/5 mx-auto lg:my-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
                     {
-                        posts.map(post => <LFItemCard key={post._id}></LFItemCard>)
+                        posts.map(post => <LFItemCard key={post._id} post={post}></LFItemCard>)
                     }
                 </div>
             }
+            {/* table layout */}
             {
                 table && <div className="overflow-x-auto rounded-box border border-base-content/5 bg-base-100">
                     <table className="table">
                         {/* head */}
                         <thead>
                             <tr>
-                                <th>Title</th>
-                                <th>Lost / Found date</th>
-                                <th>Post Type</th>
+                                <th>Post</th>
+                                <th>Lost/Found Date</th>
+                                <th>Description</th>
                             </tr>
                         </thead>
                         <tbody>
                             {
                                 posts.map(post => <tr key={post._id}>
-                                <td>{post.title}</td>
-                                <td>{post.date}</td>
-                                <td>{post.postType}</td>
-                            </tr>)
+                                    <td>
+                                        <div className='flex items-center gap-3'>
+                                            <div className='avatar'>
+                                                <div className="mask mask-squircle h-12 w-12">
+                                                    <img
+                                                        src={post.imageUrl}
+                                                        alt="Avatar Tailwind CSS Component" />
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div className='font-bold'>{post.title}</div>
+                                                <div className='text-sm opacity-50'>{post.location}</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>{post.date}</td>
+                                    <td>
+                                        <div className='flex items-center gap-3'>
+                                            <div className='max-w-32 truncate'>
+                                               {post.description}
+                                            </div>
+                                            <Link to={`/items/${post._id}`}>
+                                                <button className='btn btn-link'>See Details</button>
+                                            </Link>
+                                        </div>
+                                    </td>
+                                </tr>)
                             }
                         </tbody>
                     </table>

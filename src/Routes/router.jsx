@@ -4,6 +4,8 @@ import Login from "../pages/Login";
 import Home from "../pages/Home";
 import Register from "../pages/Register";
 import LostAndFoundItems from "../pages/LostAndFoundItems";
+import PrivateRoute from "./PrivateRoute";
+import PostDetails from "../pages/private/PostDetails";
 
 
 const router = createBrowserRouter([
@@ -27,6 +29,10 @@ const router = createBrowserRouter([
            {
             path: '/register',
             element: <Register></Register>
+           },
+           {
+            path: '/items/:id',
+            element: <PrivateRoute><PostDetails></PostDetails></PrivateRoute>
            }
         ]
     }
