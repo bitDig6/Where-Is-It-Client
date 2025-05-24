@@ -2,11 +2,13 @@ import React, { useState } from 'react';
 import Swal from 'sweetalert2';
 import { ToastContainer, toast } from 'react-toastify';
 import useAuth from '../hooks/useAuth';
-import { Link } from 'react-router';
+import { Link, useLocation, useNavigate } from 'react-router';
 
 const Login = () => {
     const { loginUser, loginWithGoogle } = useAuth();
     const [error, setError] = useState(null);
+    const navigate = useNavigate();
+    const location = useLocation();
 
     const handleLogin = (e) => {
         e.preventDefault();
@@ -22,6 +24,7 @@ const Login = () => {
                         text: "You have logged in successfully!",
                         icon: "success"
                     });
+                    location.state ? navigate(location.state) : navigate('/');
                 }
             }).catch(error => {
                 setError(error.message);

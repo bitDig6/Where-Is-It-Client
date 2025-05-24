@@ -3,10 +3,15 @@
 @import "tailwindcss";
 @plugin "daisyui";
 
+
 @theme{
   --font-federo: Federo, sans-serif;
   --font-poppins: Poppins, sans-serif;
   --font-playwrite-dk-loopet: Playwrite DK Loopet, cursive;
   --font-inter: Inter, sans-serif;
+}
 
+.active{
+  background-color: rgb(194, 135, 113);
+  font-weight: bold;
 }

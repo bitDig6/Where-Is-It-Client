@@ -69,7 +69,8 @@ const LostAndFoundItems = () => {
         <section className='w-11/12 mx-auto my-20 space-y-4'>
             <h3 className='text-3xl text-center font-bold text-pink-600'>Latest Find & Lost Posts</h3>
             <div className=''>
-                <div className='flex gap-3'>
+                <div className='flex gap-3 items-center'>
+                    <div>View: </div>
                     <div className='tooltip' data-tip="table layout">
                         <button onClick={handleTableLayout} className='btn btn-primary'><BiSolidGrid></BiSolidGrid></button>
                     </div>

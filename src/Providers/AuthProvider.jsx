@@ -41,14 +41,12 @@ const AuthProvider = ({children}) => {
             if(currentUser?.email){
                 const user = { email: currentUser?.email };
                 axios.post('https://where-is-it-server-xi.vercel.app/jwt', user, { withCredentials: true })
-                    .then( res => {
-                        console.log(res.data);
+                    .then( () => {
                         setLoading(false);
                     })
             }else{
                 axios.post('https://where-is-it-server-xi.vercel.app/logout', {}, { withCredentials: true })
-                    .then( res => {
-                        console.log(res.data);
+                    .then( () => {
                         setLoading(false);
                     })
             }            

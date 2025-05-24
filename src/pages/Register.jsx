@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router';
+import { Link, useNavigate } from 'react-router';
 import Swal from 'sweetalert2';
 import { ToastContainer, toast } from 'react-toastify';
 import useAuth from '../hooks/useAuth';
@@ -7,6 +7,7 @@ import useAuth from '../hooks/useAuth';
 const Register = () => {
     const { setUser, registerUser, updateUserProfile, loginWithGoogle } = useAuth();
     const [error, setError] = useState(null);
+    const navigate = useNavigate();
 
     const handleRegister = (e) => {
         e.preventDefault();
@@ -43,6 +44,7 @@ const Register = () => {
                             text: "You have registered successfully!",
                             icon: "success"
                         });
+                        navigate('/');
                     }).catch(error => {
                         setError(error.message);
                         toast.error(error.message);
@@ -76,7 +78,7 @@ const Register = () => {
                 <div className="text-center lg:text-left">
                     {/* write some thing like register to get access hijibiji */}
                 </div>
-                <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
+                <div className="card w-full max-w-sm shrink-0 shadow-2xl">
                     <div className="card-body">
                         <h1 className="ml-8 mt-4 text-4xl font-semibold text-center">Register</h1>
                         <form onSubmit={handleRegister} className="fieldset">

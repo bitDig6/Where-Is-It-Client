@@ -1,5 +1,6 @@
 import { Navigate, useLocation } from 'react-router';
 import useAuth from '../hooks/useAuth';
+import Loading from '../components/shared/common/Loading';
 
 const PrivateRoute = ({children}) => {
     const { user, loading } = useAuth();
@@ -8,7 +9,7 @@ const PrivateRoute = ({children}) => {
     if(loading){
         return (
             <div>
-                <div className='loading loading-spinner'></div>
+                <Loading></Loading>
             </div>
         );
     }
