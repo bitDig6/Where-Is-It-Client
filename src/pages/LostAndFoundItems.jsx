@@ -31,7 +31,7 @@ const LostAndFoundItems = () => {
     }
 
     if (error) {
-        return 'An error has occurred ' + error.message;
+        return error.message;
     }
 
     const handleItemsPerPage = (e) => {

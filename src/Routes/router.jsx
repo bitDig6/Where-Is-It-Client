@@ -10,12 +10,14 @@ import AddItems from "../pages/private/AddItems";
 import MyItems from "../pages/private/MyItems";
 import UpdateItems from "../pages/private/UpdateItems";
 import RecoveredItems from "../pages/private/RecoveredItems";
+import ErrorPage from "../pages/ErrorPage";
 
 
 const router = createBrowserRouter([
     {
         path: '/',
         element: <MainLayout></MainLayout>,
+        errorElement: <ErrorPage></ErrorPage>,
         children: [
             {
                 path: '/',

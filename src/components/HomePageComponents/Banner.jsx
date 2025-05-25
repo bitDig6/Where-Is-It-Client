@@ -38,8 +38,7 @@ const Banner = () => {
                 modules={[Autoplay, Pagination, Navigation]}
                 className="mySwiper bg-black h-dvw lg:h-dvh"
             >
-                {/* no 1 slide img link:  */}
-
+            
                 <SwiperSlide className='h-full bg-gradient-to-br from-white to-lime-400'>
                     <div className="hero h-full">
                         <div className="hero-content flex-col-reverse lg:flex-row-reverse">
@@ -76,6 +75,8 @@ const Banner = () => {
                             <p className='lg:px-4 text-center lg:text-justify text-xl text-black font-semibold'>Start your Business or become a entrepreneur with the help many of supportive and kind benefactors.</p>
                         </div>
                     </div></SwiperSlide>
+
+                    {/* slide 5 img:https://i.ibb.co/Lh0H5M5P/lafb5.jpg */}
             </Swiper>
         </section>
     );

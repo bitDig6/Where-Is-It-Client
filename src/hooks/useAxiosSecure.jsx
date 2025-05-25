@@ -5,7 +5,7 @@ import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router';
 
 const axiosInstance = axios.create({
-    baseURL: 'https://where-is-it-server-xi.vercel.app',
+    baseURL: `https://where-is-it-server-xi.vercel.app`,
     withCredentials: true
 });
 

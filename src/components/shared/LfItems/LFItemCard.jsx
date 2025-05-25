@@ -5,14 +5,14 @@ const LFItemCard = ({post}) => {
     const {_id, title, imageUrl, description, date} = post;
 
     return (
-        <div className="card bg-base-100 shadow-sm">
+        <div className="card bg-[#FEF7FF] shadow-xl">
             <figure className="px-10 pt-10">
                 <img
                     src={imageUrl}
                     alt="item"
                     className="w-48 h-36 rounded-xl" />
             </figure>
-            <div className="card-body items-center text-center">
+            <div className="card-body items-center text-center *:text-black">
                 <h2 className="card-title">{title}</h2>
                 <h4 className='font-bold'>{date}</h4>
                 <p>{description}</p>
