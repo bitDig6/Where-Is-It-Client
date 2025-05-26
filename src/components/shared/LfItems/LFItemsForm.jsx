@@ -17,6 +17,7 @@ const LFItemsForm = () => {
         itemData.date = startDate.toISOString().split('T')[0];
         itemData.userEmail = user?.email;
         itemData.userName = user?.displayName;
+        itemData.isRecovered = false;
 
         axiosSecure.post('/allItems', itemData)
             .then(res => {
@@ -84,7 +85,7 @@ const LFItemsForm = () => {
                 <input type="text" className="input" defaultValue={user?.displayName} disabled />
 
                 {/* user email */}
-                <label className="label">HR Email</label>
+                <label className="label text-black">HR Email</label>
                 <input type="email" className="input" defaultValue={user?.email} disabled />
 
                 <button className="btn btn-neutral mt-4">Add Post</button>

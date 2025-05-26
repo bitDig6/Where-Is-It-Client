@@ -70,7 +70,7 @@ const Navbar = () => {
                                 <ul tabIndex={0} className="dropdown-content menu bg-orange-200 rounded-box z-1 w-52 p-2 shadow-sm">
                                     <li><Link to='/addItems'>Add Items</Link></li>
                                     <li><Link to= '/allRecovered'>Recovered Items</Link></li>
-                                    <li><Link to='/myItems'>Manage Items</Link></li>
+                                    <li><Link to='/myItems'>Manage My Items</Link></li>
                                 </ul>
                             </div>
                         </>
