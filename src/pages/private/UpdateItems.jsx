@@ -5,8 +5,12 @@ import useAxiosSecure from '../../hooks/useAxiosSecure';
 import { useParams } from 'react-router';
 import { useQuery, useQueryClient } from '@tanstack/react-query';
 import Loading from '../../components/shared/common/Loading';
+import useDynamicTitle from '../../hooks/useDynamicTitle';
 
 const UpdateItems = () => {
+    const addDynamicTitle = useDynamicTitle();
+    addDynamicTitle('Update Item');
+
     const { user } = useAuth();
     const axiosSecure = useAxiosSecure();
     const { id } = useParams();

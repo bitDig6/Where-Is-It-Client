@@ -6,8 +6,12 @@ import RecoveryModal from '../../components/shared/LfItems/RecoveryModal';
 import Swal from 'sweetalert2';
 import useAuth from '../../hooks/useAuth';
 import { ToastContainer, toast } from 'react-toastify';
+import useDynamicTitle from '../../hooks/useDynamicTitle';
 
 const PostDetails = () => {
+    const addDynamicTitle = useDynamicTitle();
+    addDynamicTitle('Details');
+
     const axiosSecure = useAxiosSecure();
     const { id } = useParams();
     const queryClient = useQueryClient();

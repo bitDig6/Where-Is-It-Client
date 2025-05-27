@@ -1,8 +1,12 @@
 import React from 'react';
 import { useRouteError } from 'react-router';
 import errorImg from '../assets/error.png';
+import useDynamicTitle from '../hooks/useDynamicTitle';
 
 const ErrorPage = () => {
+    const addDynamicTitle = useDynamicTitle();
+    addDynamicTitle('Error');
+
     const error = useRouteError();
 
     return (

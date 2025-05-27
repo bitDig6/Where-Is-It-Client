@@ -3,8 +3,12 @@ import Swal from 'sweetalert2';
 import { ToastContainer, toast } from 'react-toastify';
 import useAuth from '../hooks/useAuth';
 import { Link, useLocation, useNavigate } from 'react-router';
+import useDynamicTitle from '../hooks/useDynamicTitle';
 
 const Login = () => {
+    const addDynamicTitle = useDynamicTitle();
+    addDynamicTitle('Login');
+
     const { loginUser, loginWithGoogle } = useAuth();
     const [error, setError] = useState(null);
     const navigate = useNavigate();

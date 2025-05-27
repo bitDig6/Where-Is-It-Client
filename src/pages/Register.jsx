@@ -3,8 +3,12 @@ import { Link, useNavigate } from 'react-router';
 import Swal from 'sweetalert2';
 import { ToastContainer, toast } from 'react-toastify';
 import useAuth from '../hooks/useAuth';
+import useDynamicTitle from '../hooks/useDynamicTitle';
 
 const Register = () => {
+    const addDynamicTitle = useDynamicTitle();
+    addDynamicTitle('Register');
+
     const { setUser, registerUser, updateUserProfile, loginWithGoogle } = useAuth();
     const [error, setError] = useState(null);
     const navigate = useNavigate();

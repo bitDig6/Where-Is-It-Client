@@ -6,9 +6,12 @@ import { Link, useLoaderData } from 'react-router';
 import LFItemCard from '../components/shared/LfItems/LFItemCard';
 import { BiSolidGrid } from "react-icons/bi";
 import { IoMenu } from "react-icons/io5";
-
+import useDynamicTitle from '../hooks/useDynamicTitle';
 
 const LostAndFoundItems = () => {
+    const addDynamicTitle = useDynamicTitle();
+    addDynamicTitle('All Items');
+
     const { count } = useLoaderData();
     const [itemsPerPage, setItemsPerPage] = useState(6);
     const [currentPage, setCurrentPage] = useState(0);
@@ -70,6 +73,13 @@ const LostAndFoundItems = () => {
             <h3 className='text-3xl text-center font-bold text-pink-600'>Latest Find & Lost Posts</h3>
             <div className=''>
                 <div className='flex gap-3 items-center'>
+                    {/* TODO: Search Function:
+                        A Search Bar,
+                        Filter Options
+                        1. Filter Posts By 'Title'
+                        2. Filter Posts By 'Location',
+                        Search Button Or Key Events
+                    */}
                     <div>View: </div>
                     <div className='tooltip' data-tip="table layout">
                         <button onClick={handleTableLayout} className='btn btn-primary'><BiSolidGrid></BiSolidGrid></button>

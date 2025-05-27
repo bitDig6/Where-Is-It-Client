@@ -6,8 +6,12 @@ import Loading from '../../components/shared/common/Loading';
 import { Link } from 'react-router';
 import Swal from 'sweetalert2';
 import { toast } from 'react-toastify';
+import useDynamicTitle from '../../hooks/useDynamicTitle';
 
 const MyItems = () => {
+    const addDynamicTitle = useDynamicTitle();
+    addDynamicTitle('My Items');
+
     const axiosSecure = useAxiosSecure();
     const { user } = useAuth();
     const queryClient = useQueryClient();

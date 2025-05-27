@@ -4,8 +4,12 @@ import useAxiosSecure from '../../hooks/useAxiosSecure';
 import { useQuery } from '@tanstack/react-query';
 import Loading from '../../components/shared/common/Loading';
 import { Link } from 'react-router';
+import useDynamicTitle from '../../hooks/useDynamicTitle';
 
 const RecoveredItems = () => {
+    const addDynamicTitle = useDynamicTitle()
+    addDynamicTitle('Recovered Items');
+
     const { user } = useAuth()
     const axiosSecure = useAxiosSecure();
 
