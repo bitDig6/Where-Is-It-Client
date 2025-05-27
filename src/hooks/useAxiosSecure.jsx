@@ -1,8 +1,8 @@
 import axios from 'axios';
 import React, { useEffect } from 'react';
 import useAuth from './useAuth';
-import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router';
+
 
 const axiosInstance = axios.create({
     baseURL: `https://where-is-it-server-xi.vercel.app`,
@@ -21,13 +21,6 @@ const useAxiosSecure = () => {
                 logOutUser()
                     .then(() => {
                         navigate('/login');
-                    })
-                    .catch((error) => {
-                        Swal.fire({
-                            title: "An Error Occurred",
-                            text: error.message,
-                            icon: "error"
-                        });
                     })
             }
 

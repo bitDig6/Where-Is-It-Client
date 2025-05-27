@@ -4,7 +4,7 @@ import logo from '../../assets/logo.png';
 const Footer = () => {
     return (
         <div>
-            <footer className="footer md:footer-horizontal bg-orange-100 text-black p-10">
+            <footer className="footer md:footer-horizontal bg-orange-200 text-black p-10">
                 <aside>
                     <img src={logo} alt="site logo" className='w-16' />
                     <p className='font-federo text-2xl'>
@@ -70,7 +70,7 @@ const Footer = () => {
                     </div>
                 </nav>
             </footer>
-            <footer className="footer sm:footer-horizontal footer-center bg-orange-100 text-black p-4">
+            <footer className="footer sm:footer-horizontal footer-center bg-orange-200 text-black p-4">
                 <aside>
                     <p>Copyright © {new Date().getFullYear()} - All right reserved by Where Is It Ltd</p>
                 </aside>

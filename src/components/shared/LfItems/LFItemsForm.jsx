@@ -36,6 +36,8 @@ const LFItemsForm = () => {
                     icon: "error"
                 })
             });
+
+            e.target.reset();
     }
 
     return (
@@ -55,11 +57,11 @@ const LFItemsForm = () => {
 
                 {/* title */}
                 <label className="label text-black">Title</label>
-                <input type="text" name='title' required className="input" placeholder="Post Title" />
+                <input type="text" name='title' required autoComplete='off' className="input" placeholder="Post Title" />
 
                 {/* description */}
                 <label className="label text-black">Description</label>
-                <textarea className='textarea' name="description" placeholder='add some recognizable information about the item'></textarea>
+                <textarea className='textarea' name="description" placeholder='add some recognizable information about the item' required autoComplete='off'></textarea>
 
                 {/* category */}
                 <label className="label text-black">Item Category</label>
@@ -73,20 +75,20 @@ const LFItemsForm = () => {
 
                 {/* location */}
                 <label className="label text-black">Location</label>
-                <input type="text" name='location' required className="input" placeholder="Location of the Lost or Found Item" />
+                <input type="text" name='location' required autoComplete='off' className="input" placeholder="Location of the Lost or Found Item" />
 
                 {/* date */}
                 <label className="label text-black">Date</label>
-                <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} />
+                <DatePicker className='w-full input' selected={startDate} onChange={(date) => setStartDate(date)} />
 
 
                 {/* userName */}
                 <label className="label text-black">User Name</label>
-                <input type="text" className="input" defaultValue={user?.displayName} disabled />
+                <input type="text" className="input" defaultValue={user?.displayName} readOnly />
 
                 {/* user email */}
                 <label className="label text-black">HR Email</label>
-                <input type="email" className="input" defaultValue={user?.email} disabled />
+                <input type="email" className="input" defaultValue={user?.email} readOnly />
 
                 <button className="btn btn-neutral mt-4">Add Post</button>
             </form>

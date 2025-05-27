@@ -34,6 +34,8 @@ const UpdateItems = () => {
         e.preventDefault();
         const formData = new FormData(e.target);
         const updatedData = Object.fromEntries(formData.entries());
+        updatedData.isRecovered = isRecovered === "Recovered" ? true : false;
+        console.log(updatedData);
 
         Swal.fire({
             title: "Are you sure to modify this post?",
@@ -55,8 +57,20 @@ const UpdateItems = () => {
                             });
                             queryClient.invalidateQueries(['post']);
                         }
+                    }).catch(error => {
+                        Swal.fire({
+                            title: "Failed!",
+                            text: error.message,
+                            icon: "error"
+                        });
                     })
             }
+        }).catch(error => {
+            Swal.fire({
+                title: "Failed!",
+                text: error.message,
+                icon: "error"
+            });
         })
 
     }
@@ -75,15 +89,15 @@ const UpdateItems = () => {
 
                     {/* imageUrl */}
                     <label className="label text-black">Thumbnail</label>
-                    <input type="url" className="input" name='imageUrl' required defaultValue={imageUrl} />
+                    <input type="url" className="input" name='imageUrl' required autoComplete='off' defaultValue={imageUrl} />
 
                     {/* title */}
                     <label className="label text-black">Title</label>
-                    <input type="text" name='title' required className="input" defaultValue={title} />
+                    <input type="text" name='title' required autoComplete='off' className="input" defaultValue={title} />
 
                     {/* description */}
                     <label className="label text-black">Description</label>
-                    <textarea className='textarea' name="description" defaultValue={description}></textarea>
+                    <textarea className='textarea' name="description" autoComplete='off' defaultValue={description}></textarea>
 
                     {/* category */}
                     <label className="label text-black">Item Category</label>
@@ -96,7 +110,7 @@ const UpdateItems = () => {
 
                     {/* location */}
                     <label className="label text-black">Location</label>
-                    <input type="text" name='location' required className="input" defaultValue={location} />
+                    <input type="text" name='location' autoComplete='off' required className="input" defaultValue={location} />
 
                     {/* date */}
                     <label className="label text-black">Date</label>
@@ -104,15 +118,21 @@ const UpdateItems = () => {
 
                     {/* item recovery status */}
                     <label className='label text-black'>Recovery Status</label>
-                    <input type="text" name="isRecovered" className='input' defaultValue={isRecovered ? 'Recovered' : 'Not Recovered'} />
+                    {/* <input type="text" name="isRecovered" className='input' defaultValue={} /> */}
+                    <select defaultValue={isRecovered ? 'Recovered' : 'Not Recovered'} name='isRecovered' required className="select">
+                        <option>{isRecovered ? 'Recovered' : 'Not Recovered'}</option>
+                        <option>Recovered</option>
+                        <option>Not Recovered</option>
+                    </select>
+
 
                     {/* userName */}
                     <label className="label text-black">User Name</label>
-                    <input type="text" className="input" defaultValue={user?.displayName} disabled />
+                    <input type="text" className="input" defaultValue={user?.displayName} readOnly />
 
                     {/* user email */}
                     <label className="label text-black">HR Email</label>
-                    <input type="email" className="input" defaultValue={user?.email} disabled />
+                    <input type="email" className="input" defaultValue={user?.email} readOnly />
 
                     <button className="btn btn-neutral mt-4">Update Post</button>
                 </form>
