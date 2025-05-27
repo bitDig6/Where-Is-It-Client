@@ -34,12 +34,18 @@ const PostDetails = () => {
     const handleItemRecovery = e => {
         e.preventDefault();
         const formData = new FormData(e.target);
-        const recoveryData = {
+        const { location, date} = Object.fromEntries(formData.entries());
+
+        const dateObj = new Date(date);
+        const recoveryDate = dateObj.toISOString().split('T')[0];
+
+        const itemRecoverData = {
             title,
             imageUrl,
             category,
             description,
-            recoveryLocation: Object.fromEntries(formData.entries()),
+            recoveryLocation: location,
+            recoveryDate,
             userName: user.displayName,
             userEmail: user.email
         };
@@ -59,10 +65,10 @@ const PostDetails = () => {
             .then(res => {
                 if (res.data.modifiedCount > 0) {
                     queryClient.invalidateQueries(['post']);
-                    axiosSecure.post(`/allRecovered`, recoveryData)
+                    axiosSecure.post(`/allRecovered`, itemRecoverData)
                         .then(res => {
                             if (res.data.insertedId) {
-                               toast.success('Item Recover Successful')
+                               toast.success('Item Recover Successful');
                             }
                         }).catch(error => {
                             toast.error(error.message);

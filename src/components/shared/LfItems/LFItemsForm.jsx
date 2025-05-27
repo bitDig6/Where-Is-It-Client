@@ -53,7 +53,7 @@ const LFItemsForm = () => {
 
                 {/* imageUrl */}
                 <label className="label text-black">Thumbnail</label>
-                <input type="url" className="input" name='imageUrl' required placeholder="Thumbnail" />
+                <input type="url" className="input" name='imageUrl' required   autoComplete='off' placeholder="Thumbnail" />
 
                 {/* title */}
                 <label className="label text-black">Title</label>
