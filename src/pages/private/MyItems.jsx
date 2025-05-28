@@ -19,7 +19,7 @@ const MyItems = () => {
     const { isPending, error, data: myItems } = useQuery({
         queryKey: ['myItems'],
         queryFn: async () => {
-            const res = await axiosSecure.get(`/myItems?email=${user.email}`);
+            const res = await axiosSecure.get(`/myItems?email=${user.email}`, {});
             return res.data;
         }
     })

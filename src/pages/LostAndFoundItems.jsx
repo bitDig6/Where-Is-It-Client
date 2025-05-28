@@ -2,7 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 import React, { useState } from 'react';
 import Loading from '../components/shared/common/Loading';
-import { Link, useLoaderData } from 'react-router';
+import { Link, useLoaderData, useNavigate } from 'react-router';
 import LFItemCard from '../components/shared/LfItems/LFItemCard';
 import { BiSolidGrid } from "react-icons/bi";
 import { IoMenu } from "react-icons/io5";
@@ -17,6 +17,7 @@ const LostAndFoundItems = () => {
     const [currentPage, setCurrentPage] = useState(0);
     const [table, setTable] = useState(false);
     const [card, setCard] = useState(true);
+    const navigate = useNavigate();
 
     const totalPage = Math.ceil(count / itemsPerPage);
     const pages = [...Array(totalPage).keys()];
@@ -24,7 +25,7 @@ const LostAndFoundItems = () => {
     const { isPending, error, data: posts } = useQuery({
         queryKey: ['posts', currentPage, itemsPerPage],
         queryFn: async () => {
-            const res = await axios.get(`https://where-is-it-server-xi.vercel.app/allItems?page=${currentPage}&size=${itemsPerPage}`);
+            const res = await axios.get(`https://where-is-it-server-xi.vercel.app/allItems?page=${currentPage}&size=${itemsPerPage}`, {});
             return res.data;
         }
     })
@@ -67,27 +68,36 @@ const LostAndFoundItems = () => {
         setCard(false);
     }
 
+    const handleFilter = (e) => {
+        e.preventDefault();
+        const term = e.target.term.value;
+        navigate(`/searchItem/${term}`);
+    }
+
 
     return (
         <section className='w-11/12 mx-auto my-20 space-y-4'>
             <h3 className='text-3xl text-center font-bold text-pink-600'>Latest Find & Lost Posts</h3>
-            <div className=''>
-                <div className='flex gap-3 items-center'>
-                    {/* TODO: Search Function:
-                        A Search Bar,
-                        Filter Options
-                        1. Filter Posts By 'Title'
-                        2. Filter Posts By 'Location',
-                        Search Button Or Key Events
-                    */}
-                    <div>View: </div>
-                    <div className='tooltip' data-tip="table layout">
-                        <button onClick={handleTableLayout} className='btn btn-primary'><BiSolidGrid></BiSolidGrid></button>
+            <div>
+                {/* search bar */}
+                <div className='lg:w-4/5 mx-auto flex flex-col lg:flex-row gap-3 items-center justify-center lg:justify-between'>
+                    <div>
+                        <form onSubmit={handleFilter} className='join'>
+                            <input className='input join-item lg:w-96' name="term" type="search" required placeholder="Search Item" />
+                            <button className='btn btn-neutral'>Search</button>
+                        </form>
                     </div>
-                    <div className='tooltip' data-tip="card layout">
-                        <button onClick={handleCardLayout} className='btn btn-primary'><IoMenu></IoMenu></button></div>
+                    <div className='flex gap-3 items-center'>
+                        <div>View: </div>
+                        <div className='tooltip' data-tip="table layout">
+                            <button onClick={handleTableLayout} className='btn btn-primary'><BiSolidGrid></BiSolidGrid></button>
+                        </div>
+                        <div className='tooltip' data-tip="card layout">
+                            <button onClick={handleCardLayout} className='btn btn-primary'><IoMenu></IoMenu></button></div>
+                    </div>
                 </div>
             </div>
+
             {/* card layout */}
             {
                 card && <div className='w-4/5 mx-auto lg:my-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
@@ -130,7 +140,7 @@ const LostAndFoundItems = () => {
                                     <td>
                                         <div className='flex items-center gap-3'>
                                             <div className='max-w-32 truncate'>
-                                               {post.description}
+                                                {post.description}
                                             </div>
                                             <Link to={`/items/${post._id}`}>
                                                 <button className='btn btn-link'>See Details</button>
