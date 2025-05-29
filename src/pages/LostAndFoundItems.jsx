@@ -76,14 +76,14 @@ const LostAndFoundItems = () => {
 
 
     return (
-        <section className='w-11/12 mx-auto my-20 space-y-4'>
-            <h3 className='text-3xl text-center font-bold text-pink-600'>Latest Find & Lost Posts</h3>
+        <section className='w-11/12 mx-auto my-12 space-y-4'>
+            <h3 className='text-3xl text-center font-bold text-pink-600 mb-5'>All Find & Lost Posts</h3>
             <div>
-                {/* search bar */}
+                {/* search bar and change view format */}
                 <div className='lg:w-4/5 mx-auto flex flex-col lg:flex-row gap-3 items-center justify-center lg:justify-between'>
                     <div>
                         <form onSubmit={handleFilter} className='join'>
-                            <input className='input join-item lg:w-96' name="term" type="search" required placeholder="Search Item" />
+                            <input className='input join-item lg:w-96' name="term" type="search" required placeholder="Search item by post title or lost/found location" />
                             <button className='btn btn-neutral'>Search</button>
                         </form>
                     </div>
@@ -108,7 +108,7 @@ const LostAndFoundItems = () => {
             }
             {/* table layout */}
             {
-                table && <div className="overflow-x-auto rounded-box border border-base-content/5 bg-base-100">
+                table && <div className="w-4/5 mx-auto my-20 overflow-x-auto rounded-box border border-base-content/5 bg-base-100">
                     <table className="table">
                         {/* head */}
                         <thead>
