@@ -1,5 +1,5 @@
 import React from 'react';
-import { useRouteError } from 'react-router';
+import { Link, useRouteError } from 'react-router';
 import errorImg from '../assets/error.png';
 import useDynamicTitle from '../hooks/useDynamicTitle';
 
@@ -16,6 +16,12 @@ const ErrorPage = () => {
             <p className='text-4xl font-bold'>{error.status}</p>
             <p className='text-xl font-semibold'>{error.statusText}</p>
             <p className='text-base'>{error?.error?.message}</p>
+
+            <div className='my-10'>
+                <Link>
+                    <button className='btn btn-link'>Go Back To Home</button>
+                </Link>
+            </div>
         </div>
     );
 };

@@ -3,6 +3,7 @@ import Banner from '../components/HomePageComponents/Banner';
 import LatestPosts from '../components/HomePageComponents/LatestPosts';
 import useDynamicTitle from '../hooks/useDynamicTitle';
 import AboutUs from '../components/HomePageComponents/AboutUs';
+import Testimonials from '../components/HomePageComponents/Testimonials';
 
 const Home = () => {
     const addDynamicTitle  = useDynamicTitle();
@@ -13,6 +14,7 @@ const Home = () => {
             <Banner></Banner>
             <LatestPosts></LatestPosts>
             <AboutUs></AboutUs>
+            <Testimonials></Testimonials>
         </div>
     );
 };
